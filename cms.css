@@ -1,0 +1,37 @@
+.cms-body { background: #08080a; }
+.cms-header { min-height: 74px; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; border-bottom: 1px solid #242429; }
+.cms-brand { font-family: var(--serif); font-size: 24px; letter-spacing: .08em; }
+.cms-brand span { color: var(--gold); }
+.cms-actions { display: flex; gap: 10px; }
+.cms-actions button, .cms-footer button { min-height: 42px; border: 1px solid #44434a; background: transparent; color: var(--white); padding: 0 16px; font: 600 10px var(--sans); letter-spacing: .08em; cursor: pointer; }
+.cms-actions button:hover, .cms-footer button:hover { border-color: var(--gold); color: var(--gold); }
+.cms-layout { min-height: calc(100vh - 74px); display: grid; grid-template-columns: 260px 1fr; }
+.cms-sidebar { display: flex; flex-direction: column; gap: 10px; padding: 34px 28px; border-right: 1px solid #242429; }
+.cms-sidebar label { margin-top: 12px; color: var(--gold); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
+.cms-sidebar select, .cms-field input, .cms-field textarea { width: 100%; border: 1px solid #303036; border-radius: 0; background: #111114; color: var(--white); font: 13px/1.7 var(--sans); }
+.cms-sidebar select { min-height: 42px; padding: 7px 10px; }
+.cms-editor { width: min(860px, calc(100% - 80px)); margin: 0 auto; padding: 58px 0; }
+.cms-editor-heading { margin-bottom: 30px; }
+.cms-editor-heading p { margin: 0 0 7px; color: var(--gold); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
+.cms-editor-heading h1 { margin: 0; font-family: var(--serif); font-size: 48px; font-weight: 400; }
+.cms-fields { display: grid; gap: 22px; }
+.cms-field { display: grid; gap: 8px; }
+.cms-field label { color: #9a9aa2; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.cms-field input { min-height: 46px; padding: 8px 12px; }
+.cms-field textarea { min-height: 120px; resize: vertical; padding: 12px; }
+.cms-field textarea[data-lines="1"] { min-height: 76px; }
+.cms-footer { display: flex; justify-content: space-between; margin-top: 30px; }
+.cms-footer #save-button { border-color: var(--gold); background: var(--gold); color: #08080a; }
+.cms-footer #save-button:hover { background: transparent; color: var(--gold); }
+.cms-footer .cms-secondary { color: #9a9aa2; }
+#cms-status { min-height: 20px; color: var(--gold); font-size: 11px; }
+@media (max-width: 680px) {
+  .cms-header { min-height: 68px; }
+  .cms-actions button { padding: 0 9px; font-size: 8px; }
+  .cms-layout { grid-template-columns: 1fr; }
+  .cms-sidebar { border-right: 0; border-bottom: 1px solid #242429; }
+  .cms-editor { width: 86%; padding: 38px 0; }
+  .cms-editor-heading h1 { font-size: 38px; }
+  .cms-footer { gap: 10px; }
+  .cms-footer button { flex: 1; }
+}

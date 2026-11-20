@@ -154,23 +154,51 @@ let currentLanguage = localStorage.getItem("noir-language");
 if (!supportedLanguages.includes(currentLanguage)) currentLanguage = "id";
 languageSelect.value = currentLanguage;
 
+let publishedCmsContent = {};
+
+function mergeCmsObjects(base, override) {
+  if (!override || typeof override !== "object" || Array.isArray(override)) return override;
+  const result = { ...base };
+  Object.entries(override).forEach(([key, value]) => {
+    result[key] = value && typeof value === "object" && !Array.isArray(value)
+      ? mergeCmsObjects(base?.[key] || {}, value)
+      : value;
+  });
+  return result;
+}
+
+function readCmsContent() {
+  let localContent = {};
+  try {
+    localContent = JSON.parse(localStorage.getItem("noir-cms-content") || "{}");
+  } catch {
+    localContent = {};
+  }
+  return mergeCmsObjects(publishedCmsContent, localContent);
+}
+
 function getLocale() {
   return window.noirTranslations[currentLanguage];
 }
 
 function getLocalizedPage(page) {
   const translation = getLocale().pages[page.slug];
+  const cmsContent = readCmsContent();
+  const override = cmsContent[currentLanguage]?.pages?.[page.slug] || {};
   return {
     ...page,
     ...translation,
+    ...override,
     nav: getLocale().nav[page.slug].toUpperCase(),
     sections: page.sections.map((section, index) => {
       const localizedSection = translation.sections[index];
+      const sectionOverride = override.sections?.[index] || {};
       return {
         ...section,
         ...localizedSection,
+        ...sectionOverride,
         items: localizedSection.items
-          ? localizedSection.items.map((item, itemIndex) => item ?? section.items[itemIndex])
+          ? (sectionOverride.items || localizedSection.items).map((item, itemIndex) => item ?? section.items[itemIndex])
           : undefined
       };
     })
@@ -179,7 +207,9 @@ function getLocalizedPage(page) {
 
 function renderHome() {
   const locale = getLocale();
-  const home = locale.home;
+  const cmsContent = readCmsContent();
+  const homeOverride = cmsContent[currentLanguage]?.home || {};
+  const home = { ...locale.home, ...homeOverride };
   const ui = locale.ui;
   const cards = directory.map(([slug], index) => `
     <a class="index-card" href="/${slug}" data-route="${slug}">
@@ -348,4 +378,14 @@ languageSelect.addEventListener("change", () => {
   render();
 });
 
-render();
+async function initCmsContent() {
+  try {
+    const response = await fetch("/content.json", { cache: "no-store" });
+    if (response.ok) publishedCmsContent = await response.json();
+  } catch {
+    publishedCmsContent = {};
+  }
+  render();
+}
+
+initCmsContent();

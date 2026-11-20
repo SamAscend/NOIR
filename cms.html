@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NOIR CMS</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/cms.css">
+  </head>
+  <body class="cms-body">
+    <header class="cms-header">
+      <a class="cms-brand" href="/" aria-label="Kembali ke NOIR">NOIR<span>.</span> CMS</a>
+      <div class="cms-actions">
+        <button type="button" id="import-button">Impor JSON</button>
+        <button type="button" id="export-button">Ekspor JSON</button>
+      </div>
+      <input type="file" id="import-file" accept="application/json,.json" hidden>
+    </header>
+    <main class="cms-layout">
+      <aside class="cms-sidebar">
+        <label for="cms-language">Bahasa</label>
+        <select id="cms-language">
+          <option value="id">Indonesia</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+        <label for="cms-page">Halaman</label>
+        <select id="cms-page"></select>
+      </aside>
+      <section class="cms-editor">
+        <div class="cms-editor-heading">
+          <p>Konten aktif</p>
+          <h1 id="cms-title">Editor Konten</h1>
+        </div>
+        <div id="cms-fields"></div>
+        <div class="cms-footer">
+          <button type="button" id="reset-button" class="cms-secondary">Reset halaman</button>
+          <button type="button" id="save-button">Simpan perubahan</button>
+        </div>
+        <p id="cms-status" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+    <script src="/cms.js" defer></script>
+  </body>
+</html>

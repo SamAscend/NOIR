@@ -231,11 +231,11 @@ function renderHome() {
         <div class="hero-art-orbit hero-art-orbit-outer"></div>
         <div class="hero-art-orbit hero-art-orbit-inner"></div>
         <div class="hero-art-ring">N</div>
-        <span class="hero-art-index">N° 001 — JKT</span>
+        <span class="hero-art-index">NOIR — JAKARTA</span>
         <span class="hero-art-caption">99%<br>${home.dedication}</span>
         <span class="hero-art-cross">✳</span>
       </div>
-      <div class="hero-bottomline"><span>${home.scroll}</span><span>01 — 07</span></div>
+      <div class="hero-bottomline"><span>${home.scroll}</span><span>01 — 06</span></div>
     </section>
     <section class="intro-section content-width">
       <p class="section-kicker">01 <span>/</span> ${home.introKicker}</p>

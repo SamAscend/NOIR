@@ -1,11 +1,5 @@
 {
   "rewrites": [
-    { "source": "/identity", "destination": "/" },
-    { "source": "/philosophy", "destination": "/" },
-    { "source": "/vision", "destination": "/" },
-    { "source": "/edge", "destination": "/" },
-    { "source": "/execution", "destination": "/" },
-    { "source": "/director", "destination": "/" },
-    { "source": "/cms", "destination": "/cms.html" }
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ]
 }

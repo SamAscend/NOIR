@@ -15,7 +15,7 @@ window.noirTranslations = {
     },
     footerRights: "DIPIMPIN OLEH SAM. HAK CIPTA DILINDUNGI.",
     home: {
-      heroLabel: "EST. JAKARTA",
+      heroLabel: "JAKARTA",
       manifestoFirst: "Disiplin dalam Diam,",
       manifestoSecond: "Elegan dalam Tindakan.",
       heroDescription: "Sebuah kolektif pribadi yang berfokus pada pengembangan karakter, ketajaman eksekusi, dan etika persaudaraan. Kami tidak mengejar kesempurnaan mutlak, melainkan dedikasi konsisten hingga batas maksimal 99%.",
@@ -155,7 +155,7 @@ window.noirTranslations = {
     },
     footerRights: "DIRECTED BY SAM. ALL RIGHTS RESERVED.",
     home: {
-      heroLabel: "EST. JAKARTA",
+      heroLabel: "JAKARTA",
       manifestoFirst: "Discipline in Silence,",
       manifestoSecond: "Elegance in Action.",
       heroDescription: "A private collective focused on character development, sharp execution, and the ethics of brotherhood. We do not chase absolute perfection; we commit ourselves consistently to the human limit of 99%.",

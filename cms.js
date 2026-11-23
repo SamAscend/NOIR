@@ -31,10 +31,6 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;");
 }
 
-function getSelection() {
-  return readContent()[languageSelect.value]?.[pageSelect.value === "home" ? "home" : "pages"] || {};
-}
-
 function renderFields() {
   const language = languageSelect.value;
   const page = pageSelect.value;
@@ -46,11 +42,11 @@ function renderFields() {
   document.querySelector("#cms-title").textContent = page === "home" ? "Beranda" : pageSelect.selectedOptions[0].textContent;
   if (page === "home") {
     fields.innerHTML = [
-      ["heroLabel", "Hero label", "EST. JAKARTA"],
-      ["manifestoFirst", "Manifes baris 1", "Disiplin dalam Diam,"],
-      ["manifestoSecond", "Manifes baris 2", "Elegan dalam Tindakan."],
-      ["heroDescription", "Deskripsi hero", ""],
-      ["quote", "Kutipan utama", ""]
+      ["heroLabel", "Lokasi", "JAKARTA"],
+      ["manifestoFirst", "Pembuka pertama", "Disiplin dalam Diam,"],
+      ["manifestoSecond", "Pembuka kedua", "Elegan dalam Tindakan."],
+      ["heroDescription", "Deskripsi utama", ""],
+      ["quote", "Kutipan", ""]
     ].map(([key, label, fallback]) => `
       <div class="cms-field">
         <label for="field-${key}">${label}</label>
@@ -63,15 +59,15 @@ function renderFields() {
         <input id="field-title" data-key="title" value="${escapeHtml(value.title || "")}">
       </div>
       <div class="cms-field">
-        <label for="field-lead">Lead / pendahuluan</label>
+        <label for="field-lead">Pengantar</label>
         <textarea id="field-lead" data-key="lead">${escapeHtml(value.lead || "")}</textarea>
       </div>
       <div class="cms-field">
-        <label for="field-eyebrow">Eyebrow</label>
+        <label for="field-eyebrow">Label halaman</label>
         <input id="field-eyebrow" data-key="eyebrow" value="${escapeHtml(value.eyebrow || "")}">
       </div>
       <div class="cms-field">
-        <label for="field-sections">Section (JSON)</label>
+        <label for="field-sections">Isi bagian</label>
         <textarea id="field-sections" data-key="sections" data-lines="0">${escapeHtml(JSON.stringify(value.sections || [], null, 2))}</textarea>
       </div>`;
   }

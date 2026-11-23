@@ -16,7 +16,7 @@
 .cms-editor-heading h1 { margin: 0; font-family: var(--serif); font-size: 48px; font-weight: 400; }
 .cms-fields { display: grid; gap: 22px; }
 .cms-field { display: grid; gap: 8px; }
-.cms-field label { color: #9a9aa2; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.cms-field label { color: #9a9aa2; font-size: 10px; letter-spacing: .08em; }
 .cms-field input { min-height: 46px; padding: 8px 12px; }
 .cms-field textarea { min-height: 120px; resize: vertical; padding: 12px; }
 .cms-field textarea[data-lines="1"] { min-height: 76px; }
